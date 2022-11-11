@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.http import HttpResponseRedirect
-from django.views.generic import TemplateView, CreateView, UpdateView, ListView, DetailView
+from django.views.generic import TemplateView, CreateView, UpdateView, ListView, DetailView, DeleteView
 from django.contrib.auth.views import LoginView, LogoutView
 
 from .models import Employee
@@ -54,3 +54,7 @@ class EmployeeUpdateView(UpdateView):
 
     def get_success_url(self):
         return reverse('detail_employee', args=[self.object.id])
+
+class EmployeeDeleteView(DeleteView):
+    model = Employee
+    success_url = reverse_lazy('list_employee')

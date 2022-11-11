@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %} BNX Employee Portal | Delete {object.employee_code} {% endblock title %}
+
+{% block content %}
+<form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">Confirm Delete</button>
+</form>
+{% endblock content %}
