@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.urls import reverse
 from django.http import HttpResponseRedirect
-from django.views.generic import TemplateView, CreateView, UpdateView
+from django.views.generic import TemplateView, CreateView, UpdateView, ListView
 from django.contrib.auth.views import LoginView, LogoutView
 
 from .models import Employee
@@ -40,3 +40,7 @@ class EmployeeSalaryUpdateView(UpdateView):
     
     def get_success_url(self):
         return reverse('home')
+
+class EmployeeListView(ListView):
+    model = Employee
+    context_object_name = 'employees'
