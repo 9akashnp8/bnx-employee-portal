@@ -31,9 +31,9 @@ class Employee(models.Model):
     department = models.ForeignKey(Department, null=True, on_delete=models.SET_NULL)
     designation = models.ForeignKey(Designation, null=True, on_delete=models.SET_NULL)
     branch = models.ForeignKey(Branch, null=True, on_delete=models.SET_NULL)
-    salary = models.DecimalField(max_digits=20, decimal_places=2)
+    salary = models.DecimalField(max_digits=20, decimal_places=2, null=True, blank=True)
     date_of_joining = models.DateField()
-    date_of_exit = models.DateField()
+    date_of_exit = models.DateField(null=True, blank=True)
     date_created = models.DateField(auto_now_add=True)
     is_active = models.BooleanField(default=True)
 
