@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.urls import reverse
-from django.views.generic import TemplateView, CreateView
+from django.http import HttpResponseRedirect
+from django.views.generic import TemplateView, CreateView, UpdateView
 from django.contrib.auth.views import LoginView, LogoutView
 
 from .models import Employee
@@ -20,6 +21,22 @@ class CustomLogoutView(LogoutView):
 class EmployeeCreateView(CreateView):
     model = Employee
     form_class = EmployeeCreateForm
+    
+    def get_success_url(self):
+        return reverse('update_employee')
+    
+    def form_valid(self, form):
+        self.object = form.save()
+        self.request.session['id'] = self.object.id
+        return HttpResponseRedirect(self.get_success_url())
+
+class EmployeeSalaryUpdateView(UpdateView):
+    model = Employee
+    fields = ['employee_code', 'first_name', 'salary']
+
+    def get_object(self):
+        object = self.model.objects.get(id=self.request.session['id'])
+        return object
     
     def get_success_url(self):
         return reverse('home')
