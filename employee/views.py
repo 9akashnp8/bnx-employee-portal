@@ -47,3 +47,10 @@ class EmployeeListView(ListView):
 
 class EmployeeDetailView(DetailView):
     model = Employee
+
+class EmployeeUpdateView(UpdateView):
+    model = Employee
+    fields = '__all__'
+
+    def get_success_url(self):
+        return reverse('detail_employee', args=[self.object.id])

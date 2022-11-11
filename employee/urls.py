@@ -7,4 +7,5 @@ urlpatterns = [
     path('employee/add/salary/', views.EmployeeSalaryUpdateView.as_view(), name='update_employee'),
     path('employees/', views.EmployeeListView.as_view(), name='list_employee'),
     path('employee/<int:pk>', views.EmployeeDetailView.as_view(), name='detail_employee'),
+    path('employee/<int:pk>/update/', views.EmployeeUpdateView.as_view(), name='update_employee'),
 ]
