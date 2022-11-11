@@ -6,4 +6,5 @@ urlpatterns = [
     path('employee/add/', views.EmployeeCreateView.as_view(), name='add_employee'),
     path('employee/add/salary/', views.EmployeeSalaryUpdateView.as_view(), name='update_employee'),
     path('employees/', views.EmployeeListView.as_view(), name='list_employee'),
+    path('employee/<int:pk>', views.EmployeeDetailView.as_view(), name='detail_employee'),
 ]

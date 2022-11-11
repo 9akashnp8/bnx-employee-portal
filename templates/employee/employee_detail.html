@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %} BNX Employee Portal | {{object.employee_code}} {% endblock title %}
+
+{% block content %}
+<div>
+    <ul>
+        <li>Employee Code: {{object.employee_code}}</li>
+        <li>Employee Code: {{object.first_name}}</li>
+        <li>Employee Code: {{object.last_name}}</li>
+        <li>Employee Code: {{object.email}}</li>
+        <li>Employee Code: {{object.phone}}</li>
+        <li>Employee Code: {{object.department}}</li>
+        <li>Employee Code: {{object.designation}}</li>
+    </ul>
+</div>
+{% endblock content %}

@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.urls import reverse
 from django.http import HttpResponseRedirect
-from django.views.generic import TemplateView, CreateView, UpdateView, ListView
+from django.views.generic import TemplateView, CreateView, UpdateView, ListView, DetailView
 from django.contrib.auth.views import LoginView, LogoutView
 
 from .models import Employee
@@ -44,3 +44,6 @@ class EmployeeSalaryUpdateView(UpdateView):
 class EmployeeListView(ListView):
     model = Employee
     context_object_name = 'employees'
+
+class EmployeeDetailView(DetailView):
+    model = Employee
