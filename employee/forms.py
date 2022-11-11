@@ -14,3 +14,8 @@ class UserUpdateForm(UserChangeForm):
     class Meta:
         model = CustomUser
         fields = ('email',)
+
+class EmployeeCreateForm(forms.ModelForm):
+    class Meta:
+        model = Employee
+        exclude = ['salary']
