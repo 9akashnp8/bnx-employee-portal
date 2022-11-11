@@ -7,6 +7,11 @@
     <title>{% block title%} {% endblock title%}</title>
 </head>
 <body>
+    <nav>
+        <ul>
+            <li><a href="{% url 'add_employee' %}">Add New Employee</a></li>
+        </ul>
+    </nav>
     {% block content%}
 
     {% endblock content%}
