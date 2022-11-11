@@ -35,8 +35,8 @@ class EmployeeSalaryUpdateView(UpdateView):
     form_class = EmployeeSalaryUpdateForm
 
     def get_object(self):
-        object = self.model.objects.get(id=self.request.session['id'])
-        return object
+        employee = self.model.objects.get(id=self.request.session['id'])
+        return employee
     
     def get_success_url(self):
         return reverse('home')
