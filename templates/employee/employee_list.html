@@ -3,22 +3,55 @@
 {% block title %} BNX Employee Portal | All Employees {% endblock title %}
 
 {% block content %}
-<div>
-    <table>
-        <tr>
-            <th>Employee Code</th>
-            <th>Employee Name</th>
-            <th>Employee Department</th>
-            <th>Employee Designation</th>
-        </tr>
-        {% for employee in employees %}
-        <tr>
-            <td>{{employee.employee_code}}</td>
-            <td>{{employee.first_name}} {{employee.last_name}}</td>
-            <td>{{employee.department}}</td>
-            <td>{{employee.designation}}</td>
-        </tr>
-        {% endfor %}
+<div class="overflow-x-auto relative rounded-lg">
+    <table class="w-full text-sm text-left text-black dark:text-white">
+        <thead class="text-xs text-black uppercase bg-slate-400 dark:bg-neutral-700 dark:text-white">
+            <tr>
+                <th scope="col" class="py-3 px-6">
+                    Employee Code
+                </th>
+                <th scope="col" class="py-3 px-6">
+                    Employee Name
+                </th>
+                <th scope="col" class="py-3 px-6">
+                    Department
+                </th>
+                <th scope="col" class="py-3 px-6">
+                    Designation
+                </th>
+                <th scope="col" class="py-3 px-6">
+                    Branch
+                </th>
+                <th scope="col" class="py-3 px-6">
+                    <span class="sr-only">Edit</span>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for employee in employees %}
+            <tr class="bg-slate-200 border-b dark:bg-neutral-800 dark:border-neutral-600 hover:bg-slate-500 dark:hover:bg-neutral-600">
+                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    {{employee.employee_code}}
+                </th>
+                <td class="py-4 px-6">
+                    {{employee.first_name}} {{employee.last_name}}
+                </td>
+                <td class="py-4 px-6">
+                    {{employee.department}}
+                </td>
+                <td class="py-4 px-6">
+                    {{employee.designation}}
+                </td>
+                <td class="py-4 px-6">
+                    {{employee.branch}}
+                </td>
+                <td class="py-4 px-6 text-right">
+                    <a href="{% url 'update_employee' employee.id %}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
     </table>
 </div>
+
 {% endblock content %}

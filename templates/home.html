@@ -3,5 +3,12 @@
 {% block title%} BNX Employee Portal | Home {% endblock title%}
 
 {% block content %}
-<h1 class="text-3xl">Welcome to BNX Employee Portal</h1>
+<div class="grid place-items-center">
+    <h1 class="text-3xl font-bold">Welcome to BNX Portal</h1>
+    <h3 class="text-lg">Get Started with Managing Your Employees</h3>
+    <div>
+        <a href="{% url 'add_employee'%}" class="bg-slate-400 hover:bg-slate-500 p-3 rounded">Add New Employee</a>
+        <a href="{% url 'list_employee'%}" class="bg-slate-400 hover:bg-slate-500 p-3 rounded">View All Employees</a>
+    </div>
+</div>
 {% endblock content %}

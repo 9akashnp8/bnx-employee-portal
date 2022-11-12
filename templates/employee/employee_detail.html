@@ -3,15 +3,15 @@
 {% block title %} BNX Employee Portal | {{object.employee_code}} {% endblock title %}
 
 {% block content %}
-<div>
-    <ul>
+<div class="grid place-items-center">
+    <ul class="grid grid-cols-2 gap-10">
         <li>Employee Code: {{object.employee_code}}</li>
-        <li>Employee Code: {{object.first_name}}</li>
-        <li>Employee Code: {{object.last_name}}</li>
-        <li>Employee Code: {{object.email}}</li>
-        <li>Employee Code: {{object.phone}}</li>
-        <li>Employee Code: {{object.department}}</li>
-        <li>Employee Code: {{object.designation}}</li>
+        <li>First Name: {{object.first_name}}</li>
+        <li>Last Name: {{object.last_name}}</li>
+        <li>Department: {{object.department}}</li>
+        <li>Designation: {{object.designation}}</li>
+        <li>Email ID: {{object.email}}</li>
+        <li>Phone: {{object.phone}}</li>
     </ul>
 </div>
 {% endblock content %}

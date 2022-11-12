@@ -8,14 +8,16 @@
     <title>{% block title%} {% endblock title%}</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
-<body>
-    <nav>
-        <ul>
-            <li><a href="{% url 'add_employee' %}">Add New Employee</a></li>
-        </ul>
-    </nav>
-    {% block content%}
+<body class="bg-neutral-300">
+    <div class="flex justify-between">
+        {% include 'sidebar.html' %}
+        
+        <main class="w-full m-10" style="height: 100vh;">
+        {% block content%}
 
-    {% endblock content%}
+        {% endblock content%}
+        </main>
+    </div>
+    <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
 </body>
 </html>
