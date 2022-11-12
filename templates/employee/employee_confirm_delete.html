@@ -3,9 +3,15 @@
 {% block title %} BNX Employee Portal | Delete {object.employee_code} {% endblock title %}
 
 {% block content %}
-<form method="POST">
-    {% csrf_token %}
-    {{form.as_p}}
-    <button type="submit">Confirm Delete</button>
-</form>
+<div class="grid place-items-center min-h-screen">
+    <div class="flex flex-col items-center">
+        <h2 class="text-xl font-bold mb-3">Confirm Delete of Employee: {{object.employee_code}} ({{object.first_name}} {{object.last_name}})</h2>
+        <form method="POST">
+            {% csrf_token %}
+            {{form}}
+            <button type="button" class="bg-neutral-700 hover:bg-neutral-500 text-white p-2 rounded shadow">Cancel</button>
+            <button type="submit" class="bg-neutral-700 hover:bg-neutral-500 text-white p-2 rounded shadow">Confirm Delete</button>
+        </form>
+    </div>
+</div>
 {% endblock content %}
