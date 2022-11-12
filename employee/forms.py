@@ -54,3 +54,7 @@ class EmployeeUpdateForm(EmployeeCreateForm):
     class Meta:
         model = Employee
         exclude = []
+        widgets = {
+            'date_of_joining': DateInput(attrs={'type':'date'}),
+            'date_of_exit': DateInput(attrs={'type':'date'})
+        }
