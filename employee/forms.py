@@ -36,6 +36,12 @@ class EmployeeCreateForm(forms.ModelForm):
         super(EmployeeCreateForm, self).__init__(*args, **kwargs)
         for field in self.fields:
             self.fields[field].widget.attrs.update({'class': 'form-field'})
+    
+    def clean_employee_code(self):
+        employee_code = self.cleaned_data.get('employee_code')
+        if employee_code[:4] != "BNX-":
+            raise forms.ValidationError("Employee Code Error. Code must be of format: 'BNX-000'. Eg: 'BNX-001'")
+        return employee_code
 
 class EmployeeSalaryUpdateForm(forms.ModelForm):
     employee_code = forms.CharField(max_length=50, disabled=True)
@@ -59,7 +65,7 @@ class EmployeeUpdateForm(EmployeeCreateForm):
             'date_of_joining': DateInput(attrs={'type':'date'}),
             'date_of_exit': DateInput(attrs={'type':'date'})
         }
-        
+
     def __init__(self, *args, **kwargs):
         super(EmployeeUpdateForm, self).__init__(*args, **kwargs)
         self.fields['salary'].required = True
