@@ -7,12 +7,17 @@
     <div>
         <h1 class="text-3xl font-bold mb-5">Welcome to Your BNX Portal</h1>
         <div class="flex justify-around">
-            <button class="bg-neutral-700 hover:bg-neutral-800 text-white p-3 rounded shadow">
-                <a href="{% url 'add_employee'%}">Add New Employee</a>
+            <a href="{% url 'add_employee'%}">
+                <button class="bg-neutral-700 hover:bg-neutral-800 text-white p-3 rounded shadow">
+                    Add New Employee
+                </button>
+            </a>
             </button>
-            <button class="bg-neutral-700 hover:bg-neutral-800 text-white p-3 rounded shadow">
-                <a href="{% url 'list_employee'%}">View All Employees</a>
-            </button>
+            <a href="{% url 'list_employee' %}">
+                <button class="bg-neutral-700 hover:bg-neutral-800 text-white p-3 rounded shadow">
+                    View All Employees
+                </button>
+            </a>
         </div>
     </div>
 </div>
