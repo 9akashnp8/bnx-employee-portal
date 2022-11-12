@@ -10,8 +10,8 @@ class LoginForm(AuthenticationForm):
     def __init__(self, request=None, *args, **kwargs):
         # self.request = request
         super(LoginForm, self).__init__(*args, **kwargs)
-        self.fields["username"].widget.attrs.update({'class': 'form-field'})
-        self.fields["password"].widget.attrs.update({'class': 'form-field'})
+        self.fields["username"].widget.attrs.update({'class': 'form-field text-black'})
+        self.fields["password"].widget.attrs.update({'class': 'form-field text-black'})
 
 class SignUpForm(UserCreationForm):
     class Meta:
