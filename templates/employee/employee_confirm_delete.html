@@ -9,7 +9,9 @@
         <form method="POST">
             {% csrf_token %}
             {{form}}
-            <button type="button" class="bg-neutral-800 hover:bg-neutral-500 text-white p-2 rounded shadow">Cancel</button>
+            <a href="{% url 'detail_employee' object.id %}">
+                <button type="button" class="bg-neutral-800 hover:bg-neutral-500 text-white p-2 rounded shadow">Cancel</button>
+            </a>
             <button type="submit" class="bg-neutral-800 hover:bg-neutral-500 text-white p-2 rounded shadow">Confirm Delete</button>
         </form>
     </div>
