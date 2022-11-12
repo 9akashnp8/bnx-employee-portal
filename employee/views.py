@@ -5,13 +5,14 @@ from django.views.generic import TemplateView, CreateView, UpdateView, ListView,
 from django.contrib.auth.views import LoginView, LogoutView
 
 from .models import Employee
-from .forms import EmployeeCreateForm, EmployeeSalaryUpdateForm
+from .forms import EmployeeCreateForm, EmployeeUpdateForm, EmployeeSalaryUpdateForm, LoginForm
 
 # Common Views
 class Home(TemplateView):
     template_name = 'home.html'
 
 class CustomLoginView(LoginView):
+    form_class = LoginForm
     next_page = 'home'
 
 class CustomLogoutView(LogoutView):
@@ -35,11 +36,11 @@ class EmployeeSalaryUpdateView(UpdateView):
     form_class = EmployeeSalaryUpdateForm
 
     def get_object(self):
-        object = self.model.objects.get(id=self.request.session['id'])
-        return object
+        employee = self.model.objects.get(id=self.request.session['id'])
+        return employee
     
     def get_success_url(self):
-        return reverse('home')
+        return reverse('detail_employee', args=[self.object.id])
 
 class EmployeeListView(ListView):
     model = Employee
@@ -50,7 +51,7 @@ class EmployeeDetailView(DetailView):
 
 class EmployeeUpdateView(UpdateView):
     model = Employee
-    fields = '__all__'
+    form_class = EmployeeUpdateForm
 
     def get_success_url(self):
         return reverse('detail_employee', args=[self.object.id])

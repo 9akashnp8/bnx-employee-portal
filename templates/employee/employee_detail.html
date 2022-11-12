@@ -3,15 +3,58 @@
 {% block title %} BNX Employee Portal | {{object.employee_code}} {% endblock title %}
 
 {% block content %}
-<div>
-    <ul>
-        <li>Employee Code: {{object.employee_code}}</li>
-        <li>Employee Code: {{object.first_name}}</li>
-        <li>Employee Code: {{object.last_name}}</li>
-        <li>Employee Code: {{object.email}}</li>
-        <li>Employee Code: {{object.phone}}</li>
-        <li>Employee Code: {{object.department}}</li>
-        <li>Employee Code: {{object.designation}}</li>
-    </ul>
+<div class="grid place-items-center min-h-screen">
+    <div class="">
+        <div class="flex gap-5">
+            <h2 class="text-3xl mb-5 font-bold mr-auto">{{object.employee_code}}</h2>
+            <a href="{% url 'update_employee' employee.id %}">
+                <button class="bg-neutral-800 hover:bg-neutral-500 text-white p-2 rounded shadow">Edit</button>
+            </a>
+            <a href="{% url 'delete_employee' employee.id %}">
+                <button class="bg-neutral-800 hover:bg-neutral-500 text-white p-2 rounded shadow">Delete</button>
+            </a>
+        </div>
+        <div class="flex flex-col">
+            <div class="grid grid-cols-2 gap-3 mb-5 bg-neutral-400 p-5 rounded shadow">
+                <div>
+                    <span class="font-medium">First Name</span>: {{object.first_name}}
+                </div>
+                <div>
+                    <span class="font-medium">Last Name</span>: {{object.last_name}}
+                </div>
+                <div>
+                    <span class="font-medium">Designation</span>: {{object.designation}}
+                </div>
+                <div>
+                    <span class="font-medium">Department</span>: {{object.department}}
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-3 mb-5 bg-neutral-400 p-5 rounded shadow">
+                <div>
+                    <span class="font-medium">Phone Number</span>: {{object.phone}}
+                </div>
+                <div>
+                    <span class="font-medium">Email ID</span>: {{object.email}}
+                </div>
+                <div>
+                    <span class="font-medium">Branch</span>: {{object.branch}}
+                </div>
+                <div>
+                    <span class="font-medium">Current Salary</span>: {{object.salary}}
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-3 mb-5 bg-neutral-400 p-5 rounded shadow">
+                <div>
+                    <span class="font-medium">Date of Joining</span>: {{object.date_of_joining}}
+                </div>
+                <div>
+                    <span class="font-medium">Date of Exit</span>: {{object.date_of_exit}}
+                </div>
+                <div>
+                    <span class="font-medium">Status</span>: {{object.is_active}}
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock content %}

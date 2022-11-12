@@ -1,10 +1,25 @@
-{% extends 'base.html' %}
-
-{% block content %}
-<h2>Login</h2>
-<form method="POST">
-    {% csrf_token %}
-    {{form.as_p}}
-    <button type="submit">Login</button>
-</form>
-{% endblock content %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BNX Employee Portal | Login</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body class="bg-neutral-300">
+    <main class="grid place-items-center min-h-screen">
+        <div class="bg-neutral-600 p-10 rounded shadow-lg text-white">
+            <h2 class="text-4xl font-bold mb-5">BNX Employee Portal</h2>
+            <form method="POST">
+                {% csrf_token %}
+                {{form.as_p}}
+                <button type="submit" class="bg-neutral-200 text-black p-3 mt-5 rounded my-3 w-full">
+                    Login
+                </button>
+            </form>
+        </div>
+    </main>
+</body>
+</html>
