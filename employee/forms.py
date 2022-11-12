@@ -69,3 +69,9 @@ class EmployeeUpdateForm(EmployeeCreateForm):
     def __init__(self, *args, **kwargs):
         super(EmployeeUpdateForm, self).__init__(*args, **kwargs)
         self.fields['salary'].required = True
+    
+    def clean_employee_code(self):
+        employee_code = self.cleaned_data['employee_code']
+        if employee_code[:4] != 'BNX-':
+            raise forms.ValidationError("Employee Code Error. Code must be of format: 'BNX-000'. Eg: 'BNX-001'")
+        return employee_code
