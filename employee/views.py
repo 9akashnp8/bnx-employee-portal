@@ -40,7 +40,7 @@ class EmployeeSalaryUpdateView(UpdateView):
         return employee
     
     def get_success_url(self):
-        return reverse('home')
+        return reverse('detail_employee', args=[self.object.id])
 
 class EmployeeListView(ListView):
     model = Employee
