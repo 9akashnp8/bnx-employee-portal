@@ -24,7 +24,7 @@ class EmployeeCreateView(CreateView):
     form_class = EmployeeCreateForm
     
     def get_success_url(self):
-        return reverse('update_employee')
+        return reverse('update_employee_salary')
     
     def form_valid(self, form):
         self.object = form.save()
