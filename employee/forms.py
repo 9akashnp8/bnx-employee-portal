@@ -59,3 +59,7 @@ class EmployeeUpdateForm(EmployeeCreateForm):
             'date_of_joining': DateInput(attrs={'type':'date'}),
             'date_of_exit': DateInput(attrs={'type':'date'})
         }
+        
+    def __init__(self, *args, **kwargs):
+        super(EmployeeUpdateForm, self).__init__(*args, **kwargs)
+        self.fields['salary'].required = True
