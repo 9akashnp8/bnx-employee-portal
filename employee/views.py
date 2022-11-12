@@ -5,7 +5,7 @@ from django.views.generic import TemplateView, CreateView, UpdateView, ListView,
 from django.contrib.auth.views import LoginView, LogoutView
 
 from .models import Employee
-from .forms import EmployeeCreateForm, EmployeeSalaryUpdateForm, LoginForm
+from .forms import EmployeeCreateForm, EmployeeUpdateForm, EmployeeSalaryUpdateForm, LoginForm
 
 # Common Views
 class Home(TemplateView):
@@ -51,7 +51,7 @@ class EmployeeDetailView(DetailView):
 
 class EmployeeUpdateView(UpdateView):
     model = Employee
-    fields = '__all__'
+    form_class = EmployeeUpdateForm
 
     def get_success_url(self):
         return reverse('detail_employee', args=[self.object.id])

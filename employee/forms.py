@@ -49,3 +49,8 @@ class EmployeeSalaryUpdateForm(forms.ModelForm):
         super(EmployeeSalaryUpdateForm, self).__init__(*args, **kwargs)
         for field in self.fields:
             self.fields[field].widget.attrs.update({'class': 'form-field'})
+
+class EmployeeUpdateForm(EmployeeCreateForm):
+    class Meta:
+        model = Employee
+        exclude = []
