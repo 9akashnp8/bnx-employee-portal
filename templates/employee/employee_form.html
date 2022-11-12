@@ -3,10 +3,27 @@
 {% block title %} BNX Employee Portal | Add New Employee {% endblock title %}
 
 {% block content %}
+<h1 class="text-xl font-medium mb-3">Employee Form</h1>
+{% if form.errors %}
+<div class="p-4 mb-4 text-sm text-yellow-700 bg-yellow-100 rounded-lg dark:bg-yellow-200 dark:text-yellow-800" role="alert">
+    {% for field in form %}
+    {{field.errors}}
+    {% endfor %}
+</div>
+{% endif %}
 <form method="POST">
     {% csrf_token %}
-    {{form.as_p}}
-    <button type="submit">Submit</button>
+    <div class="grid grid-cols-2 gap-8">
+        {% for field in form %}
+        <div class="flex gap-5 items-center">
+            <label for="{{field.auto_id}}" class="min-w-max">{{field.label}}:</label>
+            <div class="w-full">{{field}}</div>
+        </div>
+        {% endfor %}
+    </div>
+    <button type="submit" class="dark:bg-neutral-600 dark:text-white p-3 rounded my-3">
+        Submit
+    </button>
 </form>
 
-{% endblock content %}
+{% endblock content %}.

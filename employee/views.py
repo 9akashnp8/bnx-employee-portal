@@ -5,13 +5,14 @@ from django.views.generic import TemplateView, CreateView, UpdateView, ListView,
 from django.contrib.auth.views import LoginView, LogoutView
 
 from .models import Employee
-from .forms import EmployeeCreateForm, EmployeeSalaryUpdateForm
+from .forms import EmployeeCreateForm, EmployeeSalaryUpdateForm, LoginForm
 
 # Common Views
 class Home(TemplateView):
     template_name = 'home.html'
 
 class CustomLoginView(LoginView):
+    form_class = LoginForm
     next_page = 'home'
 
 class CustomLogoutView(LogoutView):
