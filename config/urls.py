@@ -24,4 +24,5 @@ urlpatterns = [
     path('accounts/logout/', CustomLogoutView.as_view(), name='logout'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('', include('employee.urls')),
+    path('api-auth/', include('rest_framework.urls')),
 ]
